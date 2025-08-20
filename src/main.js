@@ -7,7 +7,6 @@ gsap.registerPlugin(SplitText, ScrollTrigger, ScrambleTextPlugin);
 
 const textAnimations = {
   textAnimation1: (el) => {
-    el.style.visibility = "visible";
     const split = SplitText.create(el, {
       type: "chars",
       smartWrap: true,
@@ -29,7 +28,6 @@ const textAnimations = {
   },
 
   textAnimation2: (el) => {
-    el.style.visibility = "visible";
     const split = SplitText.create(el, {
       type: "words",
       smartWrap: true,
@@ -70,7 +68,6 @@ const textAnimations = {
   },
 
   textAnimation3: (el) => {
-    el.style.visibility = "visible";
     const split = SplitText.create(el, {
       type: "words",
       smartWrap: true,
@@ -93,7 +90,6 @@ const textAnimations = {
   },
 
   textAnimation4: (el) => {
-    el.style.visibility = "visible";
     const split = SplitText.create(el, {
       type: "words",
       smartWrap: true,
@@ -116,7 +112,6 @@ const textAnimations = {
   },
 
   textAnimation5: (el) => {
-    el.style.visibility = "visible";
     const split = SplitText.create(el, {
       type: "chars",
       smartWrap: true,
@@ -143,7 +138,6 @@ const textAnimations = {
     );
   },
   textAnimation6: (el) => {
-    el.style.visibility = "visible";
     const split = SplitText.create(el, {
       type: "chars",
       smartWrap: true,
@@ -164,7 +158,6 @@ const textAnimations = {
   },
 
   textAnimation7: (el) => {
-    el.style.visibility = "visible";
     const split = SplitText.create(el, {
       type: "chars",
       smartWrap: true,
@@ -184,7 +177,6 @@ const textAnimations = {
   },
 
   textAnimation8: (el) => {
-    el.style.visibility = "visible";
     const split = SplitText.create(el, {
       type: "chars",
       smartWrap: true,
@@ -208,7 +200,6 @@ const textAnimations = {
   },
 
   textAnimation9: (el) => {
-    el.style.visibility = "visible";
     const split = SplitText.create(el, {
       type: "chars",
       smartWrap: true,
@@ -227,7 +218,6 @@ const textAnimations = {
   },
 
   textAnimation10: (el) => {
-    el.style.visibility = "visible";
     const split = SplitText.create(el, {
       type: "chars",
       smartWrap: true,
@@ -253,7 +243,6 @@ const textAnimations = {
   },
 
   textAnimation11: (el) => {
-    el.style.visibility = "visible";
     const split = SplitText.create(el, {
       type: "chars",
       smartWrap: true,
@@ -278,7 +267,6 @@ const textAnimations = {
   },
 
   textAnimation12: (el) => {
-    el.style.visibility = "visible";
     const chars =
       "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()";
 
@@ -301,7 +289,6 @@ const textAnimations = {
   },
 
   textAnimation13: (el) => {
-    el.style.visibility = "visible";
     const split = SplitText.create(el, {
       type: "chars",
       smartWrap: true,
@@ -342,8 +329,6 @@ const textAnimations = {
   },
 
   textAnimation14: (el) => {
-    el.style.visibility = "visible";
-
     const split = SplitText.create(el, {
       type: "chars",
       smartWrap: true,
@@ -380,8 +365,6 @@ const textAnimations = {
   },
 
   textAnimation15: (el) => {
-    el.style.visibility = "visible";
-
     const split = SplitText.create(el, {
       type: "lines",
       autoSplit: true,
@@ -408,8 +391,6 @@ const textAnimations = {
   },
 
   textAnimation16: (el) => {
-    el.style.visibility = "visible";
-
     const split = SplitText.create(el, {
       type: "lines",
       mask: "lines",
@@ -438,6 +419,7 @@ const textAnimations = {
 
 function initTextAnimations() {
   document.querySelectorAll("[data-anim]").forEach((el) => {
+    gsap.set(el, { visibility: "visible" });
     const animType = el.dataset.anim;
     const animFunc = textAnimations[animType];
 

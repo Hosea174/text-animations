@@ -11,9 +11,9 @@
 }
 
 @font-face {
-  font-family: "Clash Display Variable";
-  src: url("/fonts/ClashDisplay-Variable.woff") format("woff");
-  font-weight: normal;
+  font-family: "Clash Display Medium";
+  src: url("/fonts/ClashDisplay-Medium.woff") format("woff");
+  font-weight: 400;
   font-style: normal;
 }
 
@@ -47,7 +47,7 @@ section {
   &:nth-child(odd) {
     background-image: url("./assets/Aurora-1.webp");
   }
- 
+
   &:nth-child(even) {
     background-image: url("./assets/Aurora-2.webp");
   }
@@ -69,9 +69,9 @@ section {
 
 h2 {
   margin-block: auto;
-  font-family: "Clash Display Variable", Arial, Helvetica, sans-serif;
+  font-family: "Clash Display Medium", Arial, Helvetica, sans-serif;
   font-size: 96px;
-  font-weight: 500;
+  font-weight: 400;
   line-height: 105%;
   max-width: 800px;
 }
