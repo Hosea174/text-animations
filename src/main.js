@@ -29,6 +29,56 @@ const textAnimations = {
 
   textAnimation2: (el) => {
     const split = SplitText.create(el, {
+      type: "chars",
+      smartWrap: true,
+    });
+
+    gsap.fromTo(
+      split.chars,
+      {
+        opacity: 0,
+        scaleY: 0.3,
+        transformOrigin: "bottom center",
+      },
+      {
+        opacity: 1,
+        scaleY: 1,
+        ease: "back.inOut(2.5)",
+        stagger: 0.02,
+        duration: 0.5,
+        scrollTrigger: {
+          trigger: el,
+          start: "top 90%",
+          toggleActions: "play reverse play reverse",
+        },
+      }
+    );
+  },
+
+  textAnimation3: (el) => {
+    const split = SplitText.create(el, {
+      type: "words",
+      smartWrap: true,
+      mask: "words",
+    });
+
+    gsap.from(split.words, {
+      autoAlpha: 0,
+      rotateX: -90,
+      stagger: 0.04,
+      transformOrigin: "bottom center",
+      ease: "power3.inOut",
+      duration: 0.6,
+      scrollTrigger: {
+        trigger: el,
+        start: "top 70%",
+        // toggleActions: "restart none none none",
+      },
+    });
+  },
+
+  textAnimation4: (el) => {
+    const split = SplitText.create(el, {
       type: "words",
       smartWrap: true,
       mask: "words",
@@ -43,8 +93,6 @@ const textAnimations = {
       scrollTrigger: {
         trigger: el,
         start: "top 50%",
-        // toggleActions: "restart none none restart",
-        // once: true,
       },
     });
 
@@ -67,77 +115,7 @@ const textAnimations = {
       });
   },
 
-  textAnimation3: (el) => {
-    const split = SplitText.create(el, {
-      type: "words",
-      smartWrap: true,
-      mask: "words",
-    });
-
-    gsap.from(split.words, {
-      autoAlpha: 0,
-      rotateX: -90,
-      stagger: 0.04,
-      transformOrigin: "bottom center",
-      ease: "power3.inOut",
-      duration: 0.6,
-      scrollTrigger: {
-        trigger: el,
-        start: "top 70%",
-        toggleActions: "restart none none none",
-      },
-    });
-  },
-
-  textAnimation4: (el) => {
-    const split = SplitText.create(el, {
-      type: "words",
-      smartWrap: true,
-    });
-
-    gsap.from(split.words, {
-      opacity: 0.2,
-      stagger: 0.15,
-      transformOrigin: "bottom center",
-      ease: "none",
-      duration: 0.5,
-      scrollTrigger: {
-        trigger: el,
-        start: "top 90%",
-        end: "bottom+=130% bottom",
-        toggleActions: "restart none none none",
-        scrub: true,
-      },
-    });
-  },
-
   textAnimation5: (el) => {
-    const split = SplitText.create(el, {
-      type: "chars",
-      smartWrap: true,
-    });
-
-    gsap.fromTo(
-      split.chars,
-      {
-        opacity: 0,
-        scaleY: 0.3,
-        transformOrigin: "bottom center",
-      },
-      {
-        opacity: 1,
-        scaleY: 1,
-        ease: "back.inOut(2.5)",
-        stagger: 0.02,
-        duration: 0.5,
-        scrollTrigger: {
-          trigger: el,
-          start: "top 90%",
-        },
-      }
-    );
-  },
-  textAnimation6: (el) => {
     const split = SplitText.create(el, {
       type: "chars",
       smartWrap: true,
@@ -157,7 +135,7 @@ const textAnimations = {
     });
   },
 
-  textAnimation7: (el) => {
+  textAnimation6: (el) => {
     const split = SplitText.create(el, {
       type: "chars",
       smartWrap: true,
@@ -176,7 +154,7 @@ const textAnimations = {
     });
   },
 
-  textAnimation8: (el) => {
+  textAnimation7: (el) => {
     const split = SplitText.create(el, {
       type: "chars",
       smartWrap: true,
@@ -199,7 +177,7 @@ const textAnimations = {
     });
   },
 
-  textAnimation9: (el) => {
+  textAnimation8: (el) => {
     const split = SplitText.create(el, {
       type: "chars",
       smartWrap: true,
@@ -217,7 +195,7 @@ const textAnimations = {
     });
   },
 
-  textAnimation10: (el) => {
+  textAnimation9: (el) => {
     const split = SplitText.create(el, {
       type: "chars",
       smartWrap: true,
@@ -242,7 +220,7 @@ const textAnimations = {
     });
   },
 
-  textAnimation11: (el) => {
+  textAnimation10: (el) => {
     const split = SplitText.create(el, {
       type: "chars",
       smartWrap: true,
@@ -266,29 +244,7 @@ const textAnimations = {
     });
   },
 
-  textAnimation12: (el) => {
-    const chars =
-      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()";
-
-    const scrambleTextValue = el.getAttribute("data-text");
-
-    const hoverTl = gsap.timeline({ paused: true });
-
-    hoverTl.to(el, {
-      duration: 0.6,
-      ease: "Power3.inOut",
-      scrambleText: {
-        text: scrambleTextValue,
-        speed: 0.2,
-        chars: chars,
-      },
-    });
-
-    el.addEventListener("mouseenter", () => hoverTl.play());
-    el.addEventListener("mouseleave", () => hoverTl.reverse());
-  },
-
-  textAnimation13: (el) => {
+  textAnimation11: (el) => {
     const split = SplitText.create(el, {
       type: "chars",
       smartWrap: true,
@@ -328,7 +284,104 @@ const textAnimations = {
     });
   },
 
+  textAnimation12: (el) => {
+    const split = SplitText.create(el, {
+      type: "words",
+      smartWrap: true,
+    });
+
+    gsap.from(split.words, {
+      opacity: 0.2,
+      stagger: 0.15,
+      transformOrigin: "bottom center",
+      ease: "none",
+      duration: 0.5,
+      scrollTrigger: {
+        trigger: el,
+        start: "top 90%",
+        end: "bottom+=130% bottom",
+        toggleActions: "restart none none none",
+        scrub: true,
+      },
+    });
+  },
+
+  textAnimation13: (el) => {
+    const split = SplitText.create(el, {
+      type: "lines",
+      autoSplit: true,
+      onSplit: (self) => {
+        return gsap.fromTo(
+          self.lines,
+          { autoAlpha: 0, xPercent: -10, rotationX: 90 },
+          {
+            autoAlpha: 1,
+            xPercent: 0,
+            rotationX: 0,
+            duration: 0.85,
+            stagger: 0.04,
+            // ease: "power2.inOut",
+            ease: "back.inOut",
+            scrollTrigger: {
+              trigger: el,
+              start: "top 80%",
+              toggleActions: "play reverse play reverse",
+            },
+          }
+        );
+      },
+    });
+  },
+
   textAnimation14: (el) => {
+    const split = SplitText.create(el, {
+      type: "lines",
+      mask: "lines",
+      autoSplit: true,
+      onSplit: (self) => {
+        return gsap.fromTo(
+          self.lines,
+          { autoAlpha: 0, yPercent: -100 },
+          {
+            autoAlpha: 1,
+            yPercent: 0,
+            duration: 1.1,
+            stagger: 0.04,
+            ease: "back.inOut(2)",
+            // ease: "power3.inOut",
+            scrollTrigger: {
+              trigger: el,
+              start: "top 80%",
+            },
+          }
+        );
+      },
+    });
+  },
+
+  textAnimation15: (el) => {
+    const chars =
+      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()";
+
+    const scrambleTextValue = el.getAttribute("data-text");
+
+    const hoverTl = gsap.timeline({ paused: true });
+
+    hoverTl.to(el, {
+      duration: 0.6,
+      ease: "Power3.inOut",
+      scrambleText: {
+        text: scrambleTextValue,
+        speed: 0.2,
+        chars: chars,
+      },
+    });
+
+    el.addEventListener("mouseenter", () => hoverTl.play());
+    el.addEventListener("mouseleave", () => hoverTl.reverse());
+  },
+
+  textAnimation16: (el) => {
     const split = SplitText.create(el, {
       type: "chars",
       smartWrap: true,
@@ -362,58 +415,6 @@ const textAnimations = {
 
     el.addEventListener("mouseenter", () => hoverTl.play());
     el.addEventListener("mouseleave", () => hoverTl.reverse());
-  },
-
-  textAnimation15: (el) => {
-    const split = SplitText.create(el, {
-      type: "lines",
-      autoSplit: true,
-      onSplit: (self) => {
-        return gsap.fromTo(
-          self.lines,
-          { autoAlpha: 0, xPercent: -10, rotationX: 90 },
-          {
-            autoAlpha: 1,
-            xPercent: 0,
-            rotationX: 0,
-            duration: 0.85,
-            stagger: 0.04,
-            // ease: "power2.inOut",
-            ease: "back.inOut",
-            scrollTrigger: {
-              trigger: el,
-              start: "top 80%",
-            },
-          }
-        );
-      },
-    });
-  },
-
-  textAnimation16: (el) => {
-    const split = SplitText.create(el, {
-      type: "lines",
-      mask: "lines",
-      autoSplit: true,
-      onSplit: (self) => {
-        return gsap.fromTo(
-          self.lines,
-          { autoAlpha: 0, yPercent: -100 },
-          {
-            autoAlpha: 1,
-            yPercent: 0,
-            duration: 1.1,
-            stagger: 0.04,
-            ease: "back.inOut(2)",
-            // ease: "power3.inOut",
-            scrollTrigger: {
-              trigger: el,
-              start: "top 80%",
-            },
-          }
-        );
-      },
-    });
   },
 };
 
