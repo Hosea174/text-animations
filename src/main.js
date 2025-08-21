@@ -18,12 +18,12 @@ const textAnimations = {
       stagger: 0.02,
       ease: "power2.inOut",
       duration: 0.4,
-      scrollTrigger: {
-        trigger: el,
-        start: "top 70%",
-        end: "bottom 90%",
-        once: true,
-      },
+      // scrollTrigger: {
+      //   trigger: el,
+      //   start: "top 70%",
+      //   end: "bottom 90%",
+      //   once: true,
+      // },
     });
   },
 
@@ -33,37 +33,29 @@ const textAnimations = {
       smartWrap: true,
     });
 
-    gsap.fromTo(
-      split.chars,
-      {
-        opacity: 0,
-        scaleY: 0.3,
-        transformOrigin: "bottom center",
+    gsap.from(split.chars, {
+      opacity: 0,
+      scaleY: 0.3,
+      transformOrigin: "bottom center",
+      ease: "back.inOut(2.5)",
+      stagger: 0.02,
+      duration: 0.5,
+      scrollTrigger: {
+        trigger: el,
+        start: "top 90%",
+        toggleActions: "play reverse play reverse",
       },
-      {
-        opacity: 1,
-        scaleY: 1,
-        ease: "back.inOut(2.5)",
-        stagger: 0.02,
-        duration: 0.5,
-        scrollTrigger: {
-          trigger: el,
-          start: "top 90%",
-          toggleActions: "play reverse play reverse",
-        },
-      }
-    );
+    });
   },
 
   textAnimation3: (el) => {
     const split = SplitText.create(el, {
       type: "words",
       smartWrap: true,
-      mask: "words",
     });
 
     gsap.from(split.words, {
-      autoAlpha: 0,
+      opacity: 0,
       rotateX: -90,
       stagger: 0.04,
       transformOrigin: "bottom center",
@@ -72,7 +64,6 @@ const textAnimations = {
       scrollTrigger: {
         trigger: el,
         start: "top 70%",
-        // toggleActions: "restart none none none",
       },
     });
   },
